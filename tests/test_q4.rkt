@@ -75,7 +75,7 @@
      (check-equal?
       (call-submission
        '((make-inserter 5 (lambda (len) (= len 2))) '((1 2) (3) ())))
-      '(5 (5 1 2) (3) ()))
+      '((5 1 2) (3) ()))
      (check-equal?
       (call-submission
        '((make-inserter 'x (lambda (len) (= len 0))) '(() (a ()))))
