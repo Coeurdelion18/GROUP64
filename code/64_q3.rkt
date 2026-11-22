@@ -85,3 +85,33 @@
   (newline)
   (display (postorder tree))
   (newline))
+
+;; (tree-height t): the height of tree t.
+;; Reading: the height of () is 0; the height of a node is
+;; 1 + the larger of the heights of its left and right subtrees.
+(define (tree-height t)
+  (cond ((null? t) 0)
+        (else (+ 1 (max (tree-height (tree-left t))
+                        (tree-height (tree-right t)))))))
+
+;; (count-leaves-acc t acc): the number of leaves in tree t, plus acc.
+;; Reading: for (), the result is acc; for a leaf, it is acc + 1; for any
+;; other node, count the right subtree's leaves onto acc, then the left's.
+(define (count-leaves-acc t acc)
+  (cond ((null? t) acc)
+        ((leaf? t) (+ acc 1))
+        (else (count-leaves-acc (tree-left t)
+                                (count-leaves-acc (tree-right t) acc)))))
+
+;; (count-leaves t): the number of leaves in tree t.
+;; Reading: the leaves of t counted onto a starting count of 0.
+(define (count-leaves t)
+  (count-leaves-acc t 0))
+
+;; (print-height-and-leaves tree): prints the list (height leaf-count) of
+;; tree on one line (S1.c).
+;; Reading: display the two-element list of the height and the number of
+;; leaves, then end the line with a newline.
+(define (print-height-and-leaves tree)
+  (display (list (tree-height tree) (count-leaves tree)))
+  (newline))
