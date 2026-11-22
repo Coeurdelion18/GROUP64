@@ -31,3 +31,6 @@
                       (cons x processed)
                       processed))))))
     process-list))
+
+(define (insert-if-short x lst n)
+  ((make-inserter x (lambda (len) (< len n))) lst))
