@@ -1,0 +1,1 @@
+With clues 1–8 active, count_solutions/2 returns N = 3. Therefore, the original eight clues do not uniquely determine the assignment.

@@ -63,6 +63,12 @@ solution(Active, Solution) :-
                 [AlexProject, BenProject, CarlaProject, DanaProject]),
     forall(member(ClueNumber, Active), clue(ClueNumber, Solution)).
 
+% count_solutions(+Active:list(integer), -N:integer) is det.
+% N is the number of assignments satisfying every clue listed in Active.
+count_solutions(Active, N) :-
+    findall(Solution, solution(Active, Solution), Solutions),
+    length(Solutions, N).
+
 % main is semidet.
 % Prints the first assignment satisfying clues 1 through 8, in friend order.
 main :-
