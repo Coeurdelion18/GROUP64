@@ -14,12 +14,25 @@ much as correctness.
 
 - Racket 8.x (tested with 8.18). Every solution file starts with the line
   `#lang racket/base` and has nothing above it.
-- Files: `code/<GROUPID>_q3.rkt` (S1) and `code/<GROUPID>_q4.rkt` (S2).
-- The grader runs `racket <GROUPID>_q3.rkt` after adding its own calls to the
+- Files: `code/64_q3.rkt` (S1) and `code/64_q4.rkt` (S2).
+- The grader runs `racket 64_q3.rkt` after adding its own calls to the
   end of the file. So the file must contain **only definitions**:
   - no calls at the top level, no test code and no example trees left in;
   - nothing printed when the file is loaded;
   - no `require`, no `provide`, no `module+`.
+
+## Working in this repo (for coding agents)
+
+- Before editing, read the assignment (`PPL_Assignment_2_Final.pdf`) and the
+  current contents of the file you are changing. Edit the existing file in
+  place; never rewrite parts you weren't asked to change.
+- Only create the files the task asks for: `code/64_q3.rkt`,
+  `code/64_q4.rkt`, and the matching test file in `tests/`. Don't add helper
+  scripts, extra modules or temp files to the repo.
+- Don't run `git commit` or `git push`; the student commits each step
+  themselves.
+- The student works on Windows (PowerShell). Give commands that work there,
+  and mind PowerShell quoting when passing Racket code on the command line.
 
 ## 2. Allowed built-ins (the complete list)
 
@@ -83,7 +96,7 @@ Literals are fine: numbers, `#t`, `#f`, `'()` and quoted symbols.
 
 ## 4. How to run and test
 
-- Check the file loads silently: `racket code/<GROUPID>_q3.rkt` must print
+- Check the file loads silently: `racket code/64_q3.rkt` must print
   nothing.
 - Quick manual test: open the file in DrRacket, press Run, then type calls in
   the interactions panel, for example
@@ -126,6 +139,8 @@ Before giving code, check each item and fix anything that fails:
         statement and state the result.
 12. [ ] Only the unit asked for in this prompt was written, not the rest of
         the problem.
+13. [ ] I ran the file and the tests if Racket was available, and I said
+        which checks actually ran and which were only checked by reading.
 
 ## 6. Known AI failure modes in Racket (avoid these)
 
