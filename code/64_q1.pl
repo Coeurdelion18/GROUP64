@@ -45,6 +45,10 @@ clue(8, Solution) :-
     memberchk(p(_, research, Language, data), Solution),
     Language \== javascript.
 
+% CLUE 9: The friend who prefers the AI project works in testing.
+clue(9, Solution) :-
+    memberchk(p(_, testing, _, 'AI'), Solution).
+
 % solution(+Active:list(integer), -Solution:list(p/4)) is nondet.
 % Solution assigns each department, language and project once, in friend
 % order, and satisfies every clue numbered in Active.
