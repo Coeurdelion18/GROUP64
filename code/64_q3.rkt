@@ -22,3 +22,24 @@
   (and (pair? t)
        (null? (tree-left t))
        (null? (tree-right t))))
+
+;; (inorder-acc t acc): the inorder values of tree t, placed in front of acc.
+;; Reading: for (), the result is acc; for a node, first collect the right
+;; subtree onto acc, cons the node's value in front, then collect the
+;; left subtree onto that (right to left, so no append is needed).
+(define (inorder-acc t acc)
+  (cond ((null? t) acc)
+        (else (inorder-acc (tree-left t)
+                           (cons (tree-value t)
+                                 (inorder-acc (tree-right t) acc))))))
+
+;; (inorder t): the list of values of tree t in inorder (left, node, right).
+;; Reading: the inorder values of t placed in front of the empty list.
+(define (inorder t)
+  (inorder-acc t '()))
+
+;; (print-inorder tree): prints the inorder list of tree on one line (S1.a).
+;; Reading: display the inorder list, then end the line with a newline.
+(define (print-inorder tree)
+  (display (inorder tree))
+  (newline))
